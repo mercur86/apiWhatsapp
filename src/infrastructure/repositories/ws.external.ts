@@ -63,8 +63,8 @@ class WsTransporter extends Client implements LeadExternal {
   }
 
   private generateImage = (base64: string) => {
-    //const path = `${process.cwd()}/tmp`;
-    const basePath = 'tmp'; //para produccion 
+    //const path = `${process.cwd()}/tmp`; //para local 
+    const basePath = '/home/ec2-user/apiWhatsapp/apiWhatsapp/tmp/'; //para produccion 
     console.log('ruta temp '+basePath);
     let qr_svg = imageQr(base64, { type: "svg", margin: 4 });
     qr_svg.pipe(require("fs").createWriteStream(`${basePath}/qr.svg`));
